@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("TKNK Solutions", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Hem", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Tjänster", "Services", "Home")</li>
+                    <li>@Html.ActionLink("Om Oss", "About", "Home")</li>
+                    @*Implementeras i senarea uppdatering*@
+                    @*<li>@Html.ActionLink("Resurs Arkiv", "ResourceArchive", "Home")</li>*@
+                    <li>@Html.ActionLink("Kontakta Oss", "Contact", "Home")</li>
+                    @*Implementeras i senarea uppdatering*@
+                    @*<li>
+                         <form asp-controller="HomeController" asp-action="Index">
+                           <input type="text" name="SearchString" />
+                           <input type="submit" value="Search" />
+                         </form>
+                      </li>*@
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+    <div>
+        <footer>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 offset-md-1">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <a href="default.asp">
+                                    <img src="~/Image/sveriges-flagga.png" alt="HTML tutorial" style="width:42px;height:42px;"> Svenska
+                                </a>
+                            </div>
+                            <div class="col-md-2">
+                                <p class="list">
+                                    TKNK Solutions
+                                </p>
+                                <p class="list">
+                                    Telephone: 07078888999
+                                </p>
+                                <p class="list">
+                                    Kontakt@Tknksolutions.se
+                                </p>
+                            </div>
+                            <div class="col-md-2">
+                                <p class="list">Adress:</p>
+                                <p class="list">Asmunderöd 3333</p>
+                                <p class="list">&copy; @DateTime.Now.Year - TKNK Solutions</p>
+                                
+                            </div>
+                            <div class="col-md-2">
+                                <p class="list">Följ oss gärna på socialamedia</p>
+                                <ul class="footerList">
+                                    <li>
+                                        <div class=" col-md-2">
+                                            <a href="https://www.facebook.com">
+                                                <img src="~/Image/FacebookTumb.png" alt="Our facebook page" style="width:42px;height:42px;">
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class=" col-md-2">
+                                            <a href="https://www.instagram.com/">
+                                                <img src="~/Image/InstagramTumb.png" alt="Our instagram page" style="width:42px;height:42px;">
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class=" col-md-2">
+                                            <a href="https://www.linkedin.com/">
+                                                <img src="~/Image/LinkedinTumb.png" alt="Our instagram page" style="width:42px;height:42px;">
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="default.asp">
+                                  Så här jobbar vi med GDPR
+                                </a>
+                            </div>
+                            @*Implementeras i senarea uppdatering*@
+                            @*<div class=" col-md-2 text-right">
+                                <a href="default.asp">
+                                    <img src="~/Image/skriva-en-kommentarssymbol-för-chattbubblor-kommentarsymbol-pratbubblan-pratbubblor-chatt-177260731.jpg" alt="HTML tutorial" style="width:42px;height:42px;">
+                                </a>
+                            </div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
