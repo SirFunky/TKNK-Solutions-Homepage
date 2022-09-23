@@ -14,12 +14,6 @@ namespace TKNK_Solutions_Homepage.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Welcome to TKNK Solutions.";
-
-            return View();
-        }
 
         public ActionResult Contact()
         {
@@ -28,18 +22,7 @@ namespace TKNK_Solutions_Homepage.Controllers
             return View();
         }
 
-        public ActionResult Services()
-        {
-            ViewBag.Message = "Our Services.";
 
-            return View();
-        }
 
-        public ActionResult ResourceArchive()
-        {
-            ViewBag.Message = "Our Services.";
-
-            return View();
-        }
     }
 }

@@ -4,42 +4,71 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+    <!--<div class="navbar navbar-inverse navbar-fixed-top">
                 @Html.ActionLink("TKNK Solutions", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+
                     <li>@Html.ActionLink("Hem", "Index", "Home")</li>
                     <li>@Html.ActionLink("Tjänster", "Services", "Home")</li>
-                    <li>@Html.ActionLink("Om Oss", "About", "Home")</li>
-                    @*Implementeras i senarea uppdatering*@
-                    @*<li>@Html.ActionLink("Resurs Arkiv", "ResourceArchive", "Home")</li>*@
-                    <li>@Html.ActionLink("Kontakta Oss", "Contact", "Home")</li>
-                    @*Implementeras i senarea uppdatering*@
-                    @*<li>
-                         <form asp-controller="HomeController" asp-action="Index">
-                           <input type="text" name="SearchString" />
-                           <input type="submit" value="Search" />
-                         </form>
-                      </li>*@
+                    <li>@Html.ActionLink("Om Oss", "About", "About")</li>-->
+    @*Implementeras i senarea uppdatering*@
+    @*<li>@Html.ActionLink("Resurs Arkiv", "ResourceArchive", "Home")</li>*@
+    <!--<li>@Html.ActionLink("Kontakta Oss", "Contact", "Home")</li>-->
+    @*Implementeras i senarea uppdatering*@
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/home"><img src="~/Image/Tknklogga small.png" width="75" height="75" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Tjänster
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>@Html.ActionLink("Tjänster", "Services", "Services", null, new { @class = "dropdown-item" })</li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/Services/Verksamhetsutveckling">Verksamhetsutveckling</a></li>
+                            <li><a class="dropdown-item" href="#">Systemutveckling</a></li>
+                            <li><a class="dropdown-item" href="#">Digital Marknadsföring</a></li>
+                            <li><a class="dropdown-item" href="#">IT Säkerhet</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Om Oss
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>@Html.ActionLink("Om Oss", "About", "About", null, new { @class = "dropdown-item" })</li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/About/TommyKarlsson">Tommy</a></li>
+                            <li><a class="dropdown-item" href="/About/NiklasKarlsson">Niklas</a></li>
+                            <li><a class="dropdown-item" href="/About/KiaJohanssonKarlsson">Kia</a></li>
+                            <li><a class="dropdown-item" href="/About/MiaNyberg">Mia</a></li>
+                            <li><a class="dropdown-item" href="/About/KristofferKarlsson">Kristoffer</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Kontakta Oss", "Contact", "Home", null, new { @class = "nav-link" })
+                    </li>
                 </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success btn-dark" type="submit">Search</button>
+                </form>
             </div>
         </div>
-    </div>
+    </nav>
     <div class="container body-content">
         @RenderBody()
-        <hr />
     </div>
     <div>
         <footer>
@@ -67,53 +96,49 @@
                                 <p class="list">Adress:</p>
                                 <p class="list">Asmunderöd 3333</p>
                                 <p class="list">&copy; @DateTime.Now.Year - TKNK Solutions</p>
-                                
+
                             </div>
                             <div class="col-md-2">
                                 <p class="list">Följ oss gärna på socialamedia</p>
-                                <ul class="footerList">
-                                    <li>
-                                        <div class=" col-md-2">
-                                            <a href="https://www.facebook.com">
-                                                <img src="~/Image/FacebookTumb.png" alt="Our facebook page" style="width:42px;height:42px;">
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class=" col-md-2">
-                                            <a href="https://www.instagram.com/">
-                                                <img src="~/Image/InstagramTumb.png" alt="Our instagram page" style="width:42px;height:42px;">
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class=" col-md-2">
-                                            <a href="https://www.linkedin.com/">
-                                                <img src="~/Image/LinkedinTumb.png" alt="Our instagram page" style="width:42px;height:42px;">
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
+                                <div class="row align-content-center">
+                                    <div class=" col-md-2">
+                                        <a href="https://www.facebook.com">
+                                            <img src="~/Image/FacebookTumb.png" alt="Our facebook page" style="width:42px;height:42px;">
+                                        </a>
+                                    </div>
+
+
+                                    <div class=" col-md-2">
+                                        <a href="https://www.instagram.com/">
+                                            <img src="~/Image/InstagramTumb.png" alt="Our instagram page" style="width:42px;height:42px;">
+                                        </a>
+                                    </div>
+
+
+                                    <div class=" col-md-2">
+                                        <a href="https://www.linkedin.com/">
+                                            <img src="~/Image/LinkedinTumb.png" alt="Our instagram page" style="width:42px;height:42px;">
+                                        </a>
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="col-md-2">
                                 <a href="default.asp">
-                                  Så här jobbar vi med GDPR
+                                    Så här jobbar vi med GDPR
                                 </a>
                             </div>
                             @*Implementeras i senarea uppdatering*@
                             @*<div class=" col-md-2 text-right">
-                                <a href="default.asp">
-                                    <img src="~/Image/skriva-en-kommentarssymbol-för-chattbubblor-kommentarsymbol-pratbubblan-pratbubblor-chatt-177260731.jpg" alt="HTML tutorial" style="width:42px;height:42px;">
-                                </a>
-                            </div>*@
+                                    <a href="default.asp">
+                                        <img src="~/Image/skriva-en-kommentarssymbol-för-chattbubblor-kommentarsymbol-pratbubblan-pratbubblor-chatt-177260731.jpg" alt="HTML tutorial" style="width:42px;height:42px;">
+                                    </a>
+                                </div>*@
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
     </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>
